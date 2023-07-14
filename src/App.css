@@ -1,0 +1,125 @@
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.app-container {
+  display: flex;
+}
+
+.app-nav-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background-color: cadetblue;
+  color: black;
+  height: 100vh;
+  width: 10%;
+  align-items: center;
+}
+
+.app-routes-container {
+  width: 100%;
+  margin: 50px;
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.53);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+}
+
+.user-weather-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-weather-nav-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-link {
+  margin: 0px 10px;
+}
+
+.forecast-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.daily-cards-container {
+  border-top: 1px solid rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.weather-card-container {
+  width: 90px;
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.weather-summary {
+  height: 200px;
+}
+
+.daily-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.daily-info-container {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+  padding: 30px;
+}
+
+.forecast-container svg {
+  transform: scale(2);
+  margin: auto;
+  /* margin: 0px 0px 0 40px; */
+}
+
+.forecast-container svg path {
+  fill: rgb(253, 245, 131);
+}
+
+.icon-container {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.city-button {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 20px 5px 0 5px;
+  &:hover {
+    color: rgb(255, 255, 255);
+  }
+  &:focus {
+    color: rgb(255, 255, 255);
+    outline: none;
+  }
+  &:active {
+    color: rgb(255, 255, 255);
+  }
+}
