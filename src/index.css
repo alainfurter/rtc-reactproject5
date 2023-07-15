@@ -12,11 +12,12 @@ body {
   text-align: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(
+  /* background: linear-gradient(
     rgb(65, 88, 208) 0%,
     rgb(200, 80, 192) 46%,
     rgb(255, 204, 112) 100%
-  );
+  ); */
+  background-image: url("assets/images/fog-trees1.webp");
 }
 
 :root {
@@ -37,5 +38,6 @@ h1 {
 }
 
 p {
-  margin: 10px;
+  margin: 10px 0px;
+  text-transform: capitalize;
 }

@@ -51,24 +51,26 @@ const CityWeatherView = () => {
     }
 
     return <>
-        <div>
-            <div>
-                <h1>Weather @ city location</h1>
+        <div className='weather-container'>
+            <div className='weather-daily-container'>
+                <div className='weather-daily-details-container'>
+                     <WeatherDaily weather_object={api_result} city={city} />
+                </div>
+                <div className='side-bar'>
+                    <div className='city-button-container'>
+                        {cities.map((city_object, index) => (
+                            <button className='city-button' autoFocus={index === 0}  key={index} index={index} onClick={handleSelectCity} value={city_object.name}>{city_object.name}</button>
+                        ))}
+                    </div>
+                    <nav className='weather-nav-links'>
+                        <NavLink className={({ isActive }) => (isActive ? "nav-link-active" : "nav-link")} to="" >Daily</NavLink>
+                        <NavLink className={({ isActive }) => (isActive ? "nav-link-active" : "nav-link")} to="forecast">Forecast</NavLink>
+                    </nav>
+                </div>
             </div>
-            <div>
-                {cities.map((city_object, index) => (
-                    <button className='city-button' autoFocus={index === 0}  key={index} index={index} onClick={handleSelectCity} value={city_object.name}>{city_object.name}</button>
-                ))}
-            </div>
-            <div>
-                <nav>
-                    <NavLink className="nav-link" to="">Daily</NavLink>
-                    <NavLink className="nav-link" to="forecast">Forecast</NavLink>
-                </nav>
-            </div>
-            <Routes>
-                <Route path="" element={<WeatherDaily weather_object={api_result} city={city} />}></Route>
-                <Route path="forecast" element={<WeatherForecast weather_object={api_result} city={city} />}></Route>                
+            <Routes className='weather-routes-container'>
+                <Route path='' element={<WeatherForecast forecast={api_result?.hourly} city={city} />}></Route>
+                <Route path='forecast' element={<WeatherForecast forecast={api_result?.daily} city={city} />}></Route>             
             </Routes>
         </div>
     </>;

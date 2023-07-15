@@ -19,25 +19,67 @@ const WeatherDaily = ({ weather_object, city}) => {
     return (
       <div className="daily-container">
         <div className="daily-info-container">
-          <h1>Today's weather</h1>
-          {city ? (
-              <h2>
-                  {city}
-              </h2>
-              ):(
-              <h3>
-                  Location: lng {weather_object?.lon.toFixed(2)} and lat{' '}
-                  {weather_object?.lat.toFixed(2)}
-              </h3>)}
-          <h3>{week_day_name}</h3>
+            <h2>{weather.main}</h2>
+            <div className='main-daily-weather'>
+              <h1>{convertToCelsius(weather_object.current.temp).toFixed(0)} °C</h1>
+              <div className="daily-weather-icon">
+                {weather_icon && getWeatherIcon(weather_icon)}
+              </div>
+            </div>
+            <br /><br />
+            <h3>Max {convertToCelsius(day.temp.max).toFixed(0)} °C , Min {convertToCelsius(day.temp.min).toFixed(0)} °C</h3>
+            <div className='user-weather-title-container'>
+                {weather_object? (<h3 className='location_name'>Location {weather_object?.lat.toFixed(2)} Lat. , {' '}
+                  {weather_object?.lon.toFixed(2)} Lon.</h3>) : (<></>)}
+            </div>
+            <h3>{weather.description}</h3>
         </div>
-        <div className="daily-info-container">
-          {weather_icon && getWeatherIcon(weather_icon)}
+        <div className='daily-additional-info-container'>
+          <div className='additional-info-container'>
+            <div className='additional-info-text'>
+              <h3>Humidity</h3>
+            </div>
+            <div className='additional-info-text'>
+              <h3>{weather_object.current.humidity}%</h3>
+            </div>
+            <div className='additional-info-image'>
+              <img src="src/assets/icons/humidity.png" alt="Humidity"></img>
+            </div>
+          </div>
+          <div className='additional-info-container'>
+            <div className='additional-info-text'>
+              <h3>Pressure</h3>
+            </div>
+            <div className='additional-info-text'>
+              <h3>{weather_object.current.pressure} hPa</h3>
+            </div>
+            <div className='additional-info-image'>
+              <img src="src/assets/icons/pressure.png" alt="Pressure"></img>
+            </div>
+          </div>
+          <div className='additional-info-container'>
+            <div className='additional-info-text'>
+              <h3>Wind speed</h3>
+            </div>
+            <div className='additional-info-text'>
+              <h3>{weather_object.current.wind_speed} m/s</h3>
+            </div>
+            <div className='additional-info-image'>
+              <img src="src/assets/icons/wind.png" alt="Wind speed"></img>
+            </div>
+          </div>
+          <div className='additional-info-container'>
+            <div className='additional-info-text'>
+              <h3>Visibility</h3>
+            </div>
+            <div className='additional-info-text'>
+              <h3>{weather_object.current.visibility} m</h3>
+            </div>
+            <div className='additional-info-image'>
+              <img src="src/assets/icons/visibility.png" alt="Visibility"></img>
+            </div>
+          </div>
         </div>
-        <p>{weather.main}</p>
-        <p>{weather.description}</p>
-        <p>{convertToCelsius(day.temp.max)} °C max</p>
-        <p>{convertToCelsius(day.temp.min)} °C min</p>
       </div>
     )
   }

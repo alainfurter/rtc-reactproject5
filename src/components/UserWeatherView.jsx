@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { get_todays_weather_for_coordinate } from '../API/OPENWEATHER_API'
 import WeatherDaily from './WeatherDaily'
 import WeatherForecast from './WeatherForecast'
+import { getBackgroundImage } from '../helpers/helpers'
 
 const UserWeatherView = () => {
     // The `path` lets us build <Route> paths that are
@@ -41,6 +42,14 @@ const UserWeatherView = () => {
         if (response_data) {
             console.log('weather_api_result_callback: ', response_data);  
             set_api_result(response_data);
+
+            const weather = response_data.current.weather[0];
+            const icon_code = weather.icon.slice(0, -1);
+            let backgroundimage = getBackgroundImage(icon_code)
+            console.log('weather_api_result_callback. background: ', backgroundimage);
+            let body = document.getElementsByTagName('body')[0];
+            console.log('body: ', body);
+            body.style.backgroundImage = `url("${backgroundimage}")`;
         }
       }
     
@@ -62,19 +71,19 @@ const UserWeatherView = () => {
       }, []);
 
     return <>
-        <div className='user-weather-container'>
-            <div className='user-weather-title-container'>
-                <h1>Weather @ user location</h1>
-            </div>
-            <div className='user-weather-nav-container'>
-                <nav className='user-weather-nav-links'>
-                    <NavLink className="nav-link" to=''>Daily</NavLink>
-                    <NavLink className="nav-link" to='forecast'>Forecast</NavLink>
+        <div className='weather-container'>
+            <div className='weather-daily-container'>
+                <div className='weather-daily-details-container'>
+                     <WeatherDaily weather_object={api_result} city={null} />
+                </div>
+                <nav className='weather-nav-links'>
+                    <NavLink className={({ isActive }) => (isActive ? "nav-link-active" : "nav-link")} to=''>Today</NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? "nav-link-active" : "nav-link")} to='forecast'>Week</NavLink>
                 </nav>
             </div>
-            <Routes className='user-weather-routes-container'>
-                <Route path='' element={<WeatherDaily weather_object={api_result} city={null} />}></Route>
-                <Route path='forecast' element={<WeatherForecast weather_object={api_result} city={null} />}></Route> 
+            <Routes className='weather-routes-container'>
+                <Route path='' element={<WeatherForecast forecast={api_result?.hourly} city={null} />}></Route>
+                <Route path='forecast' element={<WeatherForecast forecast={api_result?.daily} city={null} />}></Route> 
             </Routes>
         </div>
     </>;
