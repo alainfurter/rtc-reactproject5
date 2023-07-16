@@ -23,5 +23,6 @@ During many hours of research, I found some great weather related content that w
 - The modal alert view that shows an error message when the user has not granted permission to get his location is from: https://github.com/jakobinn/react-popup-alert. 
 
 
-
-
+Screenshots:
+<img src="/src/assets/screenshots/sc_loading.png" alt="loading">
+<img src="/src/assets/screenshots/sc_city.png" alt="loading">
