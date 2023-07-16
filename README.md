@@ -25,4 +25,7 @@ During many hours of research, I found some great weather related content that w
 
 Screenshots:
 <img src="/public/assets/screenshots/sc_loading.png" alt="loading">
-<img src="/public/assets/screenshots/sc_city.png" alt="loading">
+<img src="/public/assets/screenshots/sc_city.png" alt="buenos aires">
+<img src="/public/assets/screenshots/sc_zh.png" alt="zurich">
+<img src="/public/assets/screenshots/sc_tokyo.png" alt="tokyo">
+<img src="/public/assets/screenshots/sc_sydney.png" alt="sydney">
