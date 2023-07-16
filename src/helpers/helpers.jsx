@@ -2,34 +2,34 @@ const getWeatherIcon = (iconCode) => {
   let weatherStyle;
   switch (iconCode) {
     case "01": // clear sky
-      weatherStyle = <i className="fas fa-sun"></i>;
+      weatherStyle = "/assets/icons/sun.png";
       break;
     case "02": // few clouds
-      weatherStyle = <i className="fas fa-cloud-sun"></i>;
+      weatherStyle = "/assets/icons/suncloud.png";
       break;
     case "03": // scattered clouds
-      weatherStyle = <i className="fas fa-cloud"></i>;
+      weatherStyle = "/assets/icons/twoclouds.png";
       break;
     case "04": // broken clouds
-      weatherStyle = <i className="fas fa-cloud"></i>;
+      weatherStyle = "/assets/icons/clouds.png";
       break;
     case "09": // shower rain
-      weatherStyle = <i className="fas fa-cloud-rain"></i>;
+      weatherStyle = "/assets/icons/sunrain.png";
       break;
     case "10": // rain
-      weatherStyle = <i className="fas fa-droplet"></i>;
+      weatherStyle = "/assets/icons/raindrops.png";
       break;
     case "11": // thunderstorm
-      weatherStyle = <i className="fas fa-bolt"></i>;
+      weatherStyle = "/assets/icons/bolt.png";
       break;
     case "13": // snow
-      weatherStyle = <i className="fa-solid fa-snowflake"></i>;
+      weatherStyle = "/assets/icons/snowflake.png";
       break;
     case "50": // mist
-      weatherStyle = <i className="fa-solid fa-water"></i>;
+      weatherStyle = "/assets/icons/cloudmist.png";
       break;
     default:
-      weatherStyle = <i className="fas fa-sun"></i>;
+      weatherStyle = "/assets/icons/sun.png";
   }
   return weatherStyle;
 };

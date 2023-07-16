@@ -1,15 +1,14 @@
-import { faHourglass2 } from "@fortawesome/free-solid-svg-icons";
-import WeatherDailyCard from "./WeatherDailyCard.jsx";
+import WeatherForecastCard from "./WeatherForecastCard.jsx";
  
-const WeatherForecast = ({forecast, city}) => {
-    if (!forecast) return <></>;
-    //console.log('WeatherForecast: ', forecast);
-    const array_with_five_items = forecast.slice(0, 8);
+const WeatherForecast = ({data}) => {
+    if (!data) return <></>;
+    //console.log('WeatherForecast: ', data);
+    const array_with_five_items = data.slice(0, 8);
     return (
         <div className="forecast-container">
             <div className="daily-cards-container">
                 {array_with_five_items.map((item, index) => (
-                    <WeatherDailyCard key={index} item={item} index={index} />
+                    <WeatherForecastCard key={index} item={item} />
                 ))}
             </div>
         </div>

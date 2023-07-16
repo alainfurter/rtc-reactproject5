@@ -146,8 +146,6 @@ function App() {
     const city_button = document.querySelector('#city-button');
 
     if (nav_state === 'user_location') {
-        // let body = document.getElementsByTagName('body')[0];
-        // body.style.background = `url("/assets/textures/light-blue.webp")`;
         getLocation();
     } else {
       if (city) {
@@ -291,7 +289,7 @@ function App() {
             )}
             <div className='weather-daily-details-container'>
                   {!loading ?
-                      <WeatherDaily weather_object={api_result} city={null} /> 
+                      <WeatherDaily weather_object={api_result} /> 
                   : <></>}
             </div>
             {(nav_state !== 'user_location') ? (
@@ -338,27 +336,23 @@ function App() {
             <Routes>
                 <Route 
                     path='/*' 
-                    element={<WeatherForecast 
-                    forecast={api_result?.hourly} 
-                    city={null} />}>
+                    element={<WeatherForecast
+                    data={api_result?.hourly} />}>
                 </Route>
                 <Route 
                     path='/forecast/*' 
                     element={<WeatherForecast 
-                    forecast={api_result?.daily} 
-                    city={null} />}>
+                    data={api_result?.daily} />}>
                 </Route> 
                 <Route 
                     path='/city/*' 
                     element={<WeatherForecast 
-                    forecast={api_result?.hourly} 
-                    city={city} />}>
+                    data={api_result?.hourly} />}>
                 </Route>
                 <Route 
                     path='/city/forecast/*' 
-                    element={<WeatherForecast 
-                    forecast={api_result?.daily} 
-                    city={city} />}>
+                    element={<WeatherForecast
+                    data={api_result?.daily} />}>
                 </Route>                 
             </Routes>
         </main>

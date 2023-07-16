@@ -13,18 +13,6 @@ export const get_todays_weather_for_coordinate = async (
     let OPENWEATHERAPI_TOKEN = "";
     OPENWEATHERAPI_TOKEN = import.meta.env.VITE_WEATHERTOKEN;
 
-    // if (process) {
-    //   if (process.env.NETLIFY === "true") {
-    //     // run something during build
-    //     OPENWEATHERAPI_TOKEN = process.env.VITE_WEATHERTOKEN;
-    //   } else {
-    //     // run something else
-    //     OPENWEATHERAPI_TOKEN = import.meta.env.VITE_WEATHERTOKEN;
-    //   }
-    // } else {
-    //   OPENWEATHERAPI_TOKEN = import.meta.env.VITE_WEATHERTOKEN;
-    // }
-
     const api_call_string = `${OPENWEATHER_URL}data/3.0/onecall?lat=${coordinate.lat}&lon=${coordinate.lon}&exclude=minutely&units=metric&appid=${OPENWEATHERAPI_TOKEN}`;
     //console.log(api_call_string);
 

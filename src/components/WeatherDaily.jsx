@@ -1,19 +1,13 @@
-import '@fortawesome/fontawesome-free/js/all.js'
-import { convertToCelsius, getWeatherIcon, getAnimatedWeatherIcon } from '../helpers/helpers'
-import { weekdays } from '../constants/constants';
+import { convertToCelsius, getAnimatedWeatherIcon } from '../helpers/helpers'
 
-const WeatherDaily = ({ weather_object, city}) => {
+
+const WeatherDaily = ({ weather_object}) => {
     //console.log('TodayDisplay: ', weather_object);
     if (!weather_object) return <></>;
 
     const weather = weather_object.current.weather[0];
     const weather_icon = weather.icon.slice(0, -1);
     //console.log('weather icon:', weather_icon);
-
-    var current_date = new Date(weather_object.current.dt * 1000);
-    let day_index = current_date.getDay();
-    let week_day_name = weekdays[day_index];
-    //console.log('WeatherDailyCard, weekday: ', week_day_name);
 
     let day = weather_object.daily[0];
 

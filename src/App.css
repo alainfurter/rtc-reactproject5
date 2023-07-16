@@ -354,6 +354,14 @@ a {
   align-items: center;
 }
 
+.icon-container img {
+  height: 40px;
+  width: 40px;
+  margin: auto;
+  -webkit-filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
+}
+
 /* -------------------------------------------------- */
 /* WeatherForecast */
 

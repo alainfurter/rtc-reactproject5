@@ -1,18 +1,16 @@
 import { getWeatherIcon, convertToCelsius } from "../helpers/helpers";
 import { weekdays } from "../constants/constants"; 
-import { object } from "prop-types";
 
-const WeatherDailyCard = ({ item, index }) => {
-  if (!item || !index) return <></>;
+const WeatherForecastCard = ({ item }) => {
+  if (!item) return <></>;
 
-  const unitShorthard = "°C";
   const weather = item.weather[0];
   const icon_code = weather.icon.slice(0, -1);
-  //console.log('icon code: ', icon_code);
 
   let temp_string = '';
   let item_name = '';
   var forecast_date = new Date(item.dt * 1000);
+  let icon_img = getWeatherIcon(icon_code);
 
   if (typeof item.temp === 'object') {
     let min_temp = convertToCelsius(item.temp.min).toFixed(0);
@@ -21,7 +19,6 @@ const WeatherDailyCard = ({ item, index }) => {
 
     let day_index = forecast_date.getDay();
     item_name = weekdays[day_index];
-    //console.log('WeatherDailyCard, weekday: ', item_name);
   } else {
     let temp = convertToCelsius(item.temp).toFixed(0);
     temp_string = `${temp} °C`;
@@ -31,8 +28,10 @@ const WeatherDailyCard = ({ item, index }) => {
 
   return (
     <div className="weather-card-container">
-      <h3>{index === 0 ? "Today" : item_name}</h3>
-      <div className="icon-container">{getWeatherIcon(icon_code)}</div>
+      <h3>{item_name}</h3>
+      <div className="icon-container">
+        <img src={icon_img} alt={icon_code}/>
+      </div>
       <div>
         <p>{weather.main}</p>
       </div>
@@ -48,4 +47,4 @@ const WeatherDailyCard = ({ item, index }) => {
   );
 };
 
-export default WeatherDailyCard;
+export default WeatherForecastCard;
