@@ -3,7 +3,7 @@ import WeatherDailyCard from "./WeatherDailyCard.jsx";
  
 const WeatherForecast = ({forecast, city}) => {
     if (!forecast) return <></>;
-    console.log('WeatherForecast: ', forecast);
+    //console.log('WeatherForecast: ', forecast);
     const array_with_five_items = forecast.slice(0, 8);
     return (
         <div className="forecast-container">

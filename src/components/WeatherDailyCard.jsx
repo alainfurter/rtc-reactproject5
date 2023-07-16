@@ -8,7 +8,7 @@ const WeatherDailyCard = ({ item, index }) => {
   const unitShorthard = "°C";
   const weather = item.weather[0];
   const icon_code = weather.icon.slice(0, -1);
-  console.log('icon code: ', icon_code);
+  //console.log('icon code: ', icon_code);
 
   let temp_string = '';
   let item_name = '';
@@ -21,7 +21,7 @@ const WeatherDailyCard = ({ item, index }) => {
 
     let day_index = forecast_date.getDay();
     item_name = weekdays[day_index];
-    console.log('WeatherDailyCard, weekday: ', item_name);
+    //console.log('WeatherDailyCard, weekday: ', item_name);
   } else {
     let temp = convertToCelsius(item.temp).toFixed(0);
     temp_string = `${temp} °C`;

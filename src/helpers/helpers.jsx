@@ -34,6 +34,84 @@ const getWeatherIcon = (iconCode) => {
   return weatherStyle;
 };
 
+const getAnimatedWeatherIcon = (iconCode) => {
+  let weatherStyle;
+  switch (iconCode) {
+    case "01": // clear sky
+      weatherStyle = <div className="weathericon sunny">
+                          <div className="sun">
+                              <div className="rays"></div>
+                          </div>
+                      </div>;
+      break;
+    case "02": // few clouds
+      weatherStyle = <div className="weathericon cloudy">
+                          <div className="cloud"></div>
+                          <div className="cloud"></div>
+                      </div>;
+      break;
+    case "03": // scattered clouds
+      weatherStyle = weatherStyle = <div className="weathericon cloudy">
+                                        <div className="cloud"></div>
+                                        <div className="cloud"></div>
+                                    </div>;
+      break;
+    case "04": // broken clouds
+      weatherStyle = weatherStyle = <div className="weathericon cloudy">
+                                        <div className="cloud"></div>
+                                        <div className="cloud"></div>
+                                    </div>;
+      break;
+    case "09": // shower rain
+      weatherStyle = <div className="weathericon sun-shower">
+                          <div className="cloud"></div>
+                          <div className="sun">
+                              <div className="rays"></div>
+                          </div>
+                          <div className="rain"></div>
+                      </div>;
+      break;
+    case "10": // rain
+      weatherStyle = <div className="weathericon rainy">
+                          <div className="cloud"></div>
+                          <div className="rain"></div>
+                      </div>
+    ;
+      break;
+    case "11": // thunderstorm
+      weatherStyle = <div className="weathericon thunder-storm">
+                          <div className="cloud"></div>
+                          <div className="lightning">
+                              <div className="bolt"></div>
+                              <div className="bolt"></div>
+                          </div>
+                      </div>;
+      break;
+    case "13": // snow
+      weatherStyle = <div className="weathericon flurries">
+                          <div className="cloud"></div>
+                          <div className="snow">
+                            <div className="flake"></div>
+                            <div className="flake"></div>
+                        </div>
+    </div>;
+      break;
+    case "50": // mist
+      weatherStyle = <div className="weathericon cloudy">
+                          <div className="cloud"></div>
+                          <div className="cloud"></div>
+                      </div>;
+      break;
+    default:
+      weatherStyle = <div className="weathericon sunny">
+                          <div className="sun">
+                              <div className="rays"></div>
+                          </div>
+                      </div>;
+  }
+  return weatherStyle;
+};
+
 const getBackgroundImage = (iconCode) => {
   let weatherStyle;
   switch (iconCode) {
@@ -41,7 +119,7 @@ const getBackgroundImage = (iconCode) => {
       weatherStyle = "src/assets/images/sunset.webp";
       break;
     case "02": // few clouds
-      weatherStyle = "src/assets/images/thunderstorm.jpg";
+      weatherStyle = "src/assets/images/clouds.jpg";
       break;
     case "03": // scattered clouds
       weatherStyle = "src/assets/images/clouds.jpg";
@@ -50,7 +128,7 @@ const getBackgroundImage = (iconCode) => {
       weatherStyle = "src/assets/images/clouds-strong.jpg";
       break;
     case "09": // shower rain
-      weatherStyle = "src/assets/images/shower-rain.jpg";
+      weatherStyle = "src/assets/images/rain-sky.webp";
       break;
     case "10": // rain
       weatherStyle = "src/assets/images/rain-sky.webp";
@@ -80,4 +158,4 @@ const convertToCelsius = (kelvin) => {
   return (celsius);
 }
 
-export { getWeatherIcon, convertToCelsius, getBackgroundImage };
+export { getWeatherIcon, getAnimatedWeatherIcon, convertToCelsius, getBackgroundImage };

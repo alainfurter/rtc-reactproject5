@@ -5,19 +5,24 @@
   scroll-behavior: smooth !important;
 }
 
+html,
 body {
   display: block;
   margin: 0;
   padding: 0;
   text-align: center;
-  min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+  /* min-width: 320px;
+  min-height: 100vh; */
   /* background: linear-gradient(
     rgb(65, 88, 208) 0%,
     rgb(200, 80, 192) 46%,
     rgb(255, 204, 112) 100%
   ); */
-  background-image: url("assets/images/fog-trees1.webp");
+  background: url("assets/images/fog-trees1.webp");
+  background-repeat: repeat;
+  background-size: cover;
 }
 
 :root {

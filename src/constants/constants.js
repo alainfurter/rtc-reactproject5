@@ -44,7 +44,7 @@ export const cities = [
   },
   {
     name: "Tokyo",
-    lat: "35.667562 ",
+    lat: "35.667562",
     lon: "139.770670",
   },
   {

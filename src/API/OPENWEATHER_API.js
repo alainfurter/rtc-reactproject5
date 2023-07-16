@@ -15,15 +15,15 @@ export const get_todays_weather_for_coordinate = async (
     //console.log(api_call_string);
 
     // Testing
-    callback(API_RESULT_TEST_RESPONSE_HOURS);
-    return;
+    //callback(API_RESULT_TEST_RESPONSE_HOURS);
+    //return;
 
     const response = await axios.get(api_call_string);
     if (response && response.status == "200") {
-      console.log("NASA API Fetch result: ", response.data);
+      //console.log("Weather API Fetch result: ", response.data);
       callback(response.data);
     } else {
-      console.log("NASA API Fetch error: ", response.statusText);
+      console.log("Weather API Fetch error: ", response.statusText);
     }
   } catch (error) {
     console.error(error);
