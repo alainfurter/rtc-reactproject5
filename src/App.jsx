@@ -12,6 +12,8 @@ function App() {
 
   const [ nav_state, set_nav_state ] = useState('user_location');
   const [ global_city, set_global_city ] = useState('Zurich');
+  const [ global_user_forecast_state, set_global_user_forecast_state ] = useState('Today');
+  const [ global_city_forecast_state, set_global_city_forecast_state ] = useState('Today');
   const navigate = useNavigate();
 
   var current_date = new Date();
@@ -60,18 +62,50 @@ function App() {
               <h1>Today Weather</h1>
             </div>
             <div className='app-nav-links-container'>
-              <button className="nav-button selected" id="location-button" name="location-button" onClick={handleNavigate}>
-                <img src='src/assets/icons/arrow.png' alt='User location' draggable="false" name="location-button"></img>
+              <button 
+                  className="nav-button selected" 
+                  id="location-button" 
+                  name="location-button" 
+                  onClick={handleNavigate}
+              >
+                <img src='src/assets/icons/arrow.png' 
+                    alt='User location' 
+                    draggable="false" 
+                    name="location-button"
+                ></img>
               </button>
-              <button className="nav-button" id="city-button" name="city-button" onClick={handleNavigate}>
-                <img src='src/assets/icons/city.png' alt='Cities' draggable="false" name="city-button"></img>
+              <button 
+                    className="nav-button" 
+                    id="city-button" 
+                    name="city-button" 
+                    onClick={handleNavigate}
+              >
+                <img src='src/assets/icons/city.png' 
+                    alt='Cities' 
+                    draggable="false" 
+                    name="city-button"
+                ></img>
               </button>
             </div>
         </nav>
         <main className='app-routes-container'>
             <Routes>
-                <Route path="/*" element={<UserWeatherView />}></Route>
-                <Route path="/city/*" element={<CityWeatherView global_city={global_city} set_global_city={set_global_city} />}></Route>               
+                <Route 
+                    path="/*" 
+                      element={<UserWeatherView 
+                          global_user_forecast_state={global_user_forecast_state} 
+                          set_global_user_forecast_state={set_global_user_forecast_state}  
+                      />}
+                ></Route>
+                <Route 
+                    path="/city/*" 
+                    element={<CityWeatherView 
+                        global_city={global_city} 
+                        set_global_city={set_global_city} 
+                        global_city_forecast_state={global_city_forecast_state}
+                        set_global_city_forecast_state={set_global_city_forecast_state} 
+                    />}
+                ></Route>               
             </Routes>
         </main>
       </div>

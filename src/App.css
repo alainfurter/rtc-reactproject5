@@ -360,7 +360,8 @@ a {
   font-size: 20px;
   padding: 20px 5px 0 5px;
   color: white;
-  &:hover {
+  outline: none;
+  /* &:hover {
     color: rgb(255, 255, 255);
     outline: none;
   }
@@ -371,7 +372,15 @@ a {
   &:active {
     color: rgb(255, 255, 255);
     outline: none;
-  }
+  } */
+}
+
+.city-button-active {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 20px 5px 0 5px;
+  outline: none;
 }
 
 /* -------------------------------------------------- */

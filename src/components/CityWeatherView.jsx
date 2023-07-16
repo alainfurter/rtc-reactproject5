@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 
 import { get_todays_weather_for_coordinate } from '../API/OPENWEATHER_API'
@@ -11,14 +11,17 @@ import WeatherForecast from './WeatherForecast'
 
 import { ProgressBar } from 'react-loader-spinner'
 
-const CityWeatherView = ({global_city, set_global_city}) => {
+const CityWeatherView = ({global_city, set_global_city, global_city_forecast_state, set_global_city_forecast_state}) => {
     const [location, setLocation] = useState(null)
     const [api_result, set_api_result] = useState(null);
     const [city, setCity] = useState(global_city);
     const [loading, setLoading] = useState(true);
+    const [forecast, setForecast] = useState(global_city_forecast_state);
 
     const searchIndex = cities.findIndex((current_city) => current_city.name === global_city);
     const [city_index, set_city_index] = useState(searchIndex);
+
+    const navigate = useNavigate();
 
     const weather_api_result_callback = (response_data) => {
         if (response_data) {
@@ -26,10 +29,16 @@ const CityWeatherView = ({global_city, set_global_city}) => {
             set_api_result(response_data);
             setLoading(false);
 
+            if (forecast === 'Today') {
+                navigate('');
+              } else {
+                navigate('forecast');
+              }
+
             const weather = response_data.current.weather[0];
             const icon_code = weather.icon.slice(0, -1);
             let backgroundimage = getBackgroundImage(icon_code)
-            //console.log('weather_api_result_callback. background: ', backgroundimage);
+            console.log('weather_api_result_callback. background: ', backgroundimage);
             let body = document.getElementsByTagName('body')[0];
             //console.log('body: ', body);
             body.style.background = `url("${backgroundimage}")`;
@@ -68,6 +77,12 @@ const CityWeatherView = ({global_city, set_global_city}) => {
         }
     }
 
+    const handleNavLinkSelect = (event) => {
+        //console.log('City, nav link selected: ', event.target.innerHTML);
+        setForecast(event.target.innerHTML);
+        set_global_city_forecast_state(event.target.innerHTML);
+    }
+
     return <>
         <div className='weather-container'>
             <div className='weather-daily-container'>
@@ -90,20 +105,50 @@ const CityWeatherView = ({global_city, set_global_city}) => {
                 <div className='side-bar'>
                     <div className='city-button-container'>
                         {cities.map((city_object, index) => (
-                            <button className='city-button' autoFocus={index === city_index}  key={index} index={index} onClick={handleSelectCity} value={city_object.name}>{city_object.name}</button>
+                            <button 
+                                className={ (index === city_index) ? "city-button-active" : "city-button" }  
+                                key={index} 
+                                index={index} 
+                                onClick={handleSelectCity} 
+                                value={city_object.name}
+                            >
+                                {city_object.name}
+                            </button>
                         ))}
                     </div>
                     {!loading ? (
                         <nav className='weather-nav-links'>
-                            <NavLink className={({ isActive }) => (isActive ? "nav-link-active" : "nav-link")} to="" >Today</NavLink>
-                            <NavLink className={({ isActive }) => (isActive ? "nav-link-active" : "nav-link")} to="forecast">Week</NavLink>
+                            <NavLink 
+                                className={ (forecast === 'Today') ? "nav-link-active" : "nav-link" } 
+                                to="" 
+                                onClick={handleNavLinkSelect} 
+                            >
+                                Today
+                            </NavLink>
+                            <NavLink 
+                                className={ (forecast === 'Week') ? "nav-link-active" : "nav-link" } 
+                                to="forecast" 
+                                onClick={handleNavLinkSelect} 
+                            >
+                                Week
+                            </NavLink>
                         </nav>
                     ) :(<></>)}
                 </div>
             </div>
             <Routes className='weather-routes-container'>
-                <Route path='' element={<WeatherForecast forecast={api_result?.hourly} city={city} />}></Route>
-                <Route path='forecast' element={<WeatherForecast forecast={api_result?.daily} city={city} />}></Route>             
+                <Route 
+                    path='' 
+                    element={<WeatherForecast 
+                    forecast={api_result?.hourly} 
+                    city={city} />}>
+                </Route>
+                <Route 
+                    path='forecast' 
+                    element={<WeatherForecast 
+                    forecast={api_result?.daily} 
+                    city={city} />}>
+                </Route>             
             </Routes>
         </div>
     </>;
