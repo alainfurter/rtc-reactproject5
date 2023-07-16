@@ -42,6 +42,8 @@ const CityWeatherView = ({global_city, set_global_city, global_city_forecast_sta
             let body = document.getElementsByTagName('body')[0];
             //console.log('body: ', body);
             body.style.background = `url("${backgroundimage}")`;
+        } else {
+            setLoading(false);
         }
     }
     

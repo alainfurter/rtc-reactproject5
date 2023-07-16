@@ -45,7 +45,7 @@ const WeatherDaily = ({ weather_object, city}) => {
               <h3>{weather_object.current.humidity}%</h3>
             </div>
             <div className='additional-info-image'>
-              <img src="src/assets/icons/humidity.png" alt="Humidity"></img>
+              <img src="/assets/icons/humidity.png" alt="Humidity"></img>
             </div>
           </div>
           <div className='additional-info-container'>
@@ -56,7 +56,7 @@ const WeatherDaily = ({ weather_object, city}) => {
               <h3>{weather_object.current.pressure} hPa</h3>
             </div>
             <div className='additional-info-image'>
-              <img src="src/assets/icons/pressure.png" alt="Pressure"></img>
+              <img src="/assets/icons/pressure.png" alt="Pressure"></img>
             </div>
           </div>
           <div className='additional-info-container'>
@@ -67,7 +67,7 @@ const WeatherDaily = ({ weather_object, city}) => {
               <h3>{weather_object.current.wind_speed} m/s</h3>
             </div>
             <div className='additional-info-image'>
-              <img src="src/assets/icons/wind.png" alt="Wind speed"></img>
+              <img src="/assets/icons/wind.png" alt="Wind speed"></img>
             </div>
           </div>
           <div className='additional-info-container'>
@@ -78,7 +78,7 @@ const WeatherDaily = ({ weather_object, city}) => {
               <h3>{weather_object.current.visibility} m</h3>
             </div>
             <div className='additional-info-image'>
-              <img src="src/assets/icons/visibility.png" alt="Visibility"></img>
+              <img src="/assets/icons/visibility.png" alt="Visibility"></img>
             </div>
           </div>
         </div>

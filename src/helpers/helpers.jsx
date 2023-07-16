@@ -116,34 +116,34 @@ const getBackgroundImage = (iconCode) => {
   let weatherStyle;
   switch (iconCode) {
     case "01": // clear sky
-      weatherStyle = "/src/assets/images/sunset.webp";
+      weatherStyle = "/assets/images/sunset.webp";
       break;
     case "02": // few clouds
-      weatherStyle = "/src/assets/images/clouds.jpg";
+      weatherStyle = "/assets/images/clouds.jpg";
       break;
     case "03": // scattered clouds
-      weatherStyle = "/src/assets/images/clouds.jpg";
+      weatherStyle = "/assets/images/clouds.jpg";
       break;
     case "04": // broken clouds
-      weatherStyle = "/src/assets/images/clouds-strong.jpg";
+      weatherStyle = "/assets/images/clouds-strong.jpg";
       break;
     case "09": // shower rain
-      weatherStyle = "/src/assets/images/rain-sky.webp";
+      weatherStyle = "/assets/images/rain-sky.webp";
       break;
     case "10": // rain
-      weatherStyle = "/src/assets/images/rain-sky.webp";
+      weatherStyle = "/assets/images/rain-sky.webp";
       break;
     case "11": // thunderstorm
-      weatherStyle = "/src/assets/images/thunderstorm.jpg";
+      weatherStyle = "/assets/images/thunderstorm.jpg";
       break;
     case "13": // snow
-      weatherStyle = "/src/assets/images/snowing.jpg";
+      weatherStyle = "/assets/images/snowing.jpg";
       break;
     case "50": // mist
-      weatherStyle = "/src/assets/images/fog-trees1.webp";
+      weatherStyle = "/assets/images/fog-trees1.webp";
       break;
     default:
-      weatherStyle = "/src/assets/images/sunset.webp";
+      weatherStyle = "/assets/images/sunset.webp";
   }
   return weatherStyle;
 };

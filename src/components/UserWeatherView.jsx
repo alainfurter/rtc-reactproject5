@@ -70,6 +70,8 @@ const UserWeatherView = ({global_user_forecast_state, set_global_user_forecast_s
               let body = document.getElementsByTagName('body')[0];
               //console.log('body: ', body);
               body.style.background = `url("${backgroundimage}")`;
+          } else {
+              setLoading(false);
           }
       }
     

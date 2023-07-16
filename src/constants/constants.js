@@ -1,4 +1,5 @@
 export const OPENWEATHERAPI_TOKEN = import.meta.env.VITE_WEATHERTOKEN;
+
 export const OPENWEATHER_URL = "https://api.openweathermap.org/";
 
 export const weekdays = [

@@ -24,5 +24,5 @@ During many hours of research, I found some great weather related content that w
 
 
 Screenshots:
-<img src="/src/assets/screenshots/sc_loading.png" alt="loading">
-<img src="/src/assets/screenshots/sc_city.png" alt="loading">
+<img src="/public/assets/screenshots/sc_loading.png" alt="loading">
+<img src="/public/assets/screenshots/sc_city.png" alt="loading">

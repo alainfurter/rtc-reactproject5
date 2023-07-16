@@ -68,7 +68,7 @@ function App() {
                   name="location-button" 
                   onClick={handleNavigate}
               >
-                <img src='src/assets/icons/arrow.png' 
+                <img src='/assets/icons/arrow.png' 
                     alt='User location' 
                     draggable="false" 
                     name="location-button"
@@ -80,7 +80,7 @@ function App() {
                     name="city-button" 
                     onClick={handleNavigate}
               >
-                <img src='src/assets/icons/city.png' 
+                <img src='/assets/icons/city.png' 
                     alt='Cities' 
                     draggable="false" 
                     name="city-button"
