@@ -41,7 +41,7 @@
 
 .app-title-container {
   font-weight: bold;
-  background-image: url("assets/textures/light-blue.webp");
+  background-image: url("/assets/textures/light-blue.webp");
   color: transparent;
   -webkit-background-clip: text;
   /* animation: animate 10s infinite linear; */
