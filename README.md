@@ -16,7 +16,7 @@ Specials:
 --------
 During many hours of research, I found some great weather related content that were used for developing this page:
 
-- The weather icons are special font from "FontAweSome.com". Category weather: https://fontawesome.com/icons/categories/weather. This are scalable SVG's. The Helper/Constants JS functions map the icon codes to these.
+- The weather icons are special font from "FontAweSome.com". Category weather: https://fontawesome.com/icons/categories/weather. The Helper/Constants JS functions map the icon codes to these.
 - The animated weather icon in the daily weather detail main view is from: https://codepen.io/joshbader/pen/EjXgqr. Purely designed and animated with CSS. Credits to: Josh Bader.
 - The background image of the page is also switched depending on the weather conditions. The mapping is done in the Helper/Constants classes. The images are from: https://www.pexels.com/search/weather/
 - The spinner, progress bar (ProgressBar) that shows when the API is loading is from https://github.com/mhnpd/react-loader-spinner
