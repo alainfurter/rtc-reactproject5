@@ -4,7 +4,7 @@
 .app-container {
   /* height: 100vh; */
   height: 100%;
-  height: 100%;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -105,7 +105,7 @@
 .weather-daily-container {
   display: flex;
   justify-content: space-between;
-  height: 100%;
+  /* height: 100vh; */
 }
 
 .weather-daily-details-container {
@@ -121,16 +121,20 @@
 /* Router container at the bottom */
 
 .app-routes-container {
-  /* height: 100%; */
+  /* height: 100wh; */
 }
 
 /* -------------------------------------------------- */
 /* City side bar */
 
 .side-bar {
+  min-width: 180px;
+  height: 260px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* margin-bottom: 10px; */
+  /* margin-top: 80px; */
 }
 
 .city-button-container {
@@ -407,6 +411,8 @@ a {
   .daily-container {
     flex-direction: column;
   }
+  .weather-daily-container {
+  }
 }
 
 @media (max-width: 530px) {
@@ -434,6 +440,7 @@ a {
     margin-bottom: 40px;
   }
   .side-bar {
+    /* margin-top: 80px; */
   }
   .date-view > h3 {
     font-size: 16px;
